@@ -25,4 +25,20 @@ THEN I can save my initials and score
 
 
 #comments#
+Comments!
+
+* On this project as a challenge, it was so tasking, I had to turn it in because I am losing time on the next ones read multiple resources and got confused from getting ideas from too many resources, but I appreciate my study group for always been supportive and encouraging. 
+
+
+Achievements!
+* On submission on this project, I got a better understanding of using id’s in JavaScript as a method to simplify your code and easily access them into functionality 
+
+* I learnt how to use how be better with my inner html, functions, compared to how stuck I was on my last project 
+
+* It’s an achievement to consistently grow regardless of how slow. 
+
+
+
+
+
 
