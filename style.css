@@ -144,3 +144,7 @@
     #endGameBtns{
         display: inline-block;
     }
+    
+    #Challenge{
+        display: none;
+    }

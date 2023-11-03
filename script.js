@@ -1,4 +1,4 @@
-var quizBody = document.getElementById("challenge");
+var quizBody = document.getElementById("Challenge");
 var resultsEl = document.getElementById("result");
 var finalScoreEl = document.getElementById("finalScore");
 var gameoverDiv = document.getElementById("gameover");
@@ -17,6 +17,10 @@ var buttonA = document.getElementById("A");
 var buttonB = document.getElementById("B");
 var buttonC = document.getElementById("C");
 var buttonD = document.getElementById("D");
+
+
+
+
 
 var quizQuestions = [{
     question: "what operator saves data to a web page ?",
@@ -82,6 +86,7 @@ function generateQuizQuestion(){
 function startQuiz(){
     gameoverDiv.style.display = "none";
     startQuizDiv.style.display = "none";
+    quizBody.style.display="block";
     generateQuizQuestion();
 
     timerInterval = setInterval(function() {
@@ -110,20 +115,28 @@ submitScoreBtn.addEventListener("click", function highscore(){
         alert("Initials cannot be blank");
         return false;
     }else{
-        var savedHighscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
         var currentUser = highscoreInputName.value.trim();
         var currentHighscore = {
+            
             name : currentUser,
             score : score
         };
-    
+        var savedHighscores = JSON.parse(localStorage.getItem("savedHighscores"));
+        if( savedHighscores == null){
+            savedHighscores=[]
+        }
+        var savedHighscores=[]
+        savedHighscores.push(currentHighscore);
+            localStorage.setItem("savedHighscores", JSON.stringify(savedHighscores));
+          
+        savedHighscores = JSON.parse(localStorage.getItem("savedHighscores"));
+        
         gameoverDiv.style.display = "none";
         highscoreContainer.style.display = "flex";
-        highscoreDiv.style.display = "block";
         endGameBtns.style.display = "flex";
+        console.log(currentHighscore)
         
-        savedHighscores.push(currentHighscore);
-        localStorage.setItem("savedHighscores", JSON.stringify(savedHighscores));
+       
         generateHighscores();
 
     }
@@ -134,7 +147,7 @@ submitScoreBtn.addEventListener("click", function highscore(){
 function generateHighscores(){
     highscoreDisplayName.innerHTML = "";
     highscoreDisplayScore.innerHTML = "";
-    var highscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+    var highscores = JSON.parse(localStorage.getItem("savedHighscores"));
     for (i=0; i<highscores.length; i++){
         var newNameSpan = document.createElement("li");
         var newScoreSpan = document.createElement("li");
